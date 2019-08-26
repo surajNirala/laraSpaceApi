@@ -25,13 +25,12 @@ Route::post('register', 'RegisterController@register');
 Route::post('login', 'LoginController@login');
 
 Route::middleware('jwt.auth')->group( function () {
-	/*Route::get('users1', function () {
-    return auth('api')->user();
-});*/
+	Route::post('logout','LoginController@logout');
+	Route::get('user','UserController@index');
+	Route::get('articles', 'ArticleController@index');
+	Route::get('articles/{article}', 'ArticleController@show');
+	Route::post('articles', 'ArticleController@store');
+	Route::put('articles/{article}', 'ArticleController@update');
+	Route::delete('articles/{article}', 'ArticleController@delete');
 	// Route::resource('products', 'API\ProductController');
 });
-Route::get('articles', 'ArticleController@index');
-Route::get('articles/{article}', 'ArticleController@show');
-Route::post('articles', 'ArticleController@store');
-Route::put('articles/{article}', 'ArticleController@update');
-Route::delete('articles/{article}', 'ArticleController@delete');

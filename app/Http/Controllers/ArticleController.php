@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Article;
 use Illuminate\Http\Request;
+use Tymon\JWTAuth\Facades\JWTAuth;
 
 class ArticleController extends Controller
 {
@@ -14,6 +15,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
+        // return JWTAuth::parseToken()->authenticate();
         $articles = Article::all();
         $response = [
             'status'  => 200,
